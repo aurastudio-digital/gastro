@@ -18,7 +18,12 @@
 
         /* HEADER & LOGO */
         header { padding: 20px; display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 1000; }
-        .brand-logo { height: 60px; margin-bottom: 5px; }
+        .brand-logo { 
+    height: 80px; /* Augmente ce chiffre (ex: 100px) pour le grossir */
+    width: auto;  /* Garde les proportions */
+    filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.2)); /* Ajoute une petite lueur si le logo est trop sombre */
+        }
+        
         .slogan { font-size: 0.8rem; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; }
 
         /* SECTION HERO */
