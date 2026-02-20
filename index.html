@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Studio | Architecture Gastronomique</title>
+    <style>
+        :root {
+            --gold: #FFC107;
+            --dark: #121212;
+            --gray: #1e1e1e;
+        }
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .logo span { color: var(--gold); }
+        
+        .tagline {
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .project-list {
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .project-card {
+            background: var(--gray);
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .project-card h3 {
+            margin: 0 0 5px 0;
+            color: var(--gold);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">AURA<span>STUDIO</span></div>
+    <div class="tagline">Architecture Gastronomique Digitale</div>
+
+    <div class="project-list">
+        <a href="./restaurant-demo/" class="project-card">
+            <h3>Projet Démo</h3>
+            <p>Aperçu d'un menu digital interactif premium.</p>
+        </a>
+
+        </div>
+
+    <div class="footer">
+        Contact Pro : +237 6 20 61 92 62
+    </div>
+
+</body>
+</html>
