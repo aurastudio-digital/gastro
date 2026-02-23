@@ -17,19 +17,33 @@
         body { background: var(--bg); color: var(--text); font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
 
         /* HEADER & LOGO */
-        header { padding: 20px; display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 1000; }
-        .brand-logo { 
-    height: 100px; /* On l'agrandit un peu */
-    width: auto;
-    object-fit: contain;
-    margin-bottom: 15px;
-    /* Si ton logo a un fond blanc qui gâche le noir, ajoute cette ligne : */
-    /* mix-blend-mode: screen; */ 
-        }
-        
-        
-        .slogan { font-size: 0.8rem; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; }
+        header { 
+    padding: 15px 5% ; /* 5% de marge sur les côtés pour que ce ne soit pas collé au bord */
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; /* Aligne tout à gauche */
+    background: rgba(0,0,0,0.9); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    border-bottom: 1px solid #222; /* Une fine ligne pour séparer du reste */
+}
 
+.brand-logo { 
+    height: 70px; /* Taille ajustée pour le coin gauche */
+    width: auto;
+    margin-right: 20px; /* Espace entre le logo et le slogan */
+}
+
+.slogan { 
+    font-size: 0.75rem; 
+    color: var(--primary); 
+    letter-spacing: 1.5px; 
+    text-transform: uppercase;
+    border-left: 1px solid #444; /* Une petite barre verticale de séparation */
+    padding-left: 20px;
+}
+        
         /* SECTION HERO */
         .hero { 
             height: 70vh; 
@@ -86,9 +100,10 @@
 <body>
 
     <header>
-        <img src="images/logo-de-mark2.png" alt="Aura Studio" class="brand-logo">
-        <div class="slogan">Architecture Gastronomique Digitale</div>
+    <img src="images/logo-de-mark2.png" alt="Aura Studio" class="brand-logo">
+    <div class="slogan">Architecture <br> Gastronomique</div>
     </header>
+    
 
     <section class="hero">
         <h1>L'Expérience Culinaire <br>en un Scan.</h1>
