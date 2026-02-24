@@ -14,7 +14,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text); font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: 'Poppins', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
 
         /* HEADER */
         header { 
@@ -27,20 +27,14 @@
             z-index: 1000;
             border-bottom: 1px solid #222;
         }
-
         .brand-logo { height: 60px; width: auto; margin-right: 20px; }
-
         .slogan { 
-            font-size: 0.7rem; 
-            color: var(--primary); 
-            letter-spacing: 1px; 
-            text-transform: uppercase;
-            border-left: 1px solid #444;
-            padding-left: 15px;
-            line-height: 1.2;
+            font-size: 0.7rem; color: var(--primary); letter-spacing: 1px; 
+            text-transform: uppercase; border-left: 1px solid #444;
+            padding-left: 15px; line-height: 1.2;
         }
         
-        /* SECTION HERO */
+        /* HERO */
         .hero { 
             height: 60vh; 
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/acceuil1.jpg'); 
@@ -50,91 +44,65 @@
         }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 10px; color: var(--primary); }
 
-        /* CARROUSEL OPTIMISÉ */
-        /* Style du texte du plat */
-.item-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 15px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    opacity: 0.9;
-    transition: 0.3s;
-}
-
-.item-name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
-}
-
-/* Effet au toucher (Mobile) */
-.carousel-item:active img {
-    filter: brightness(0.6) sepia(0.3); /* Change la couleur légèrement */
-    transform: scale(1.02);
-}
-
-.carousel-item:active .item-info {
-    background: rgba(230, 126, 34, 0.2); /* Teinte orange très légère au clic */
-}
+        /* CARROUSEL INTERACTIF */
+        .carousel-container { padding: 40px 0; background: #050505; text-align: center; }
+        .carousel-container h2 { margin-bottom: 25px; font-family: 'Playfair Display', serif; }
         
+        .carousel-wrapper { 
+            display: flex; overflow-x: auto; gap: 15px; padding: 0 20px 30px; 
+            scroll-snap-type: x mandatory; scrollbar-width: none; 
+        }
+        .carousel-wrapper::-webkit-scrollbar { display: none; }
 
-        /* NOUVEL AFFICHAGE DU PRIX (Fixe et élégant) */
+        .carousel-item { 
+            min-width: 280px; height: 380px; background: var(--card); border-radius: 15px; 
+            position: relative; overflow: hidden; scroll-snap-align: center; flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        
+        .carousel-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+
+        .item-info {
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            display: flex; justify-content: space-between; align-items: flex-end;
+            transition: 0.3s;
+        }
+
+        .item-name { font-size: 1rem; font-weight: 600; text-align: left; line-height: 1.2; }
+
         .price-badge {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: #000;
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 10;
+            background: var(--primary); color: #000; padding: 5px 12px;
+            border-radius: 50px; font-weight: 700; font-size: 0.85rem;
         }
 
-        .img-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(transparent 60%, rgba(0,0,0,0.8));
-        }
+        /* EFFET AU CLIC (TOUCHER) */
+        .carousel-item:active img { filter: brightness(0.5) sepia(0.4); transform: scale(1.05); }
+        .carousel-item:active .item-info { background: rgba(230, 126, 34, 0.3); }
 
         /* SERVICES */
         .services { padding: 50px 20px; display: grid; gap: 25px; max-width: 1000px; margin: auto; }
-        .card { background: var(--card); padding: 25px; border-radius: 15px; border-top: 4px solid var(--primary); }
-        .card.premium { border-top-color: #f1c40f; background: #222; }
-        .card h2 { font-size: 1.2rem; margin-bottom: 10px; letter-spacing: 1px; }
-        .price { font-size: 1.8rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; display: block; }
-        .card ul { list-style: none; line-height: 1.8; color: #bbb; font-size: 0.9rem; }
+        .card { background: var(--card); padding: 25px; border-radius: 15px; border-top: 4px solid var(--primary); text-align: left; }
+        .card.premium { border-top-color: #f1c40f; background: #1f1f1f; }
+        .price { font-size: 1.8rem; font-weight: bold; color: var(--primary); margin: 10px 0; display: block; }
+        .card ul { list-style: none; line-height: 1.8; color: #bbb; font-size: 0.85rem; }
         .card ul li::before { content: "✦ "; color: var(--primary); }
 
-        /* GALERIE UNIFORME */
+        /* GALERIE */
         .gallery { padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .gallery img { 
-            width: 100%; height: 120px; object-fit: cover; 
-            border-radius: 8px; filter: brightness(0.7); transition: 0.3s; 
-        }
-        .gallery img:hover { filter: brightness(1); transform: translateY(-5px); }
+        .gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; filter: brightness(0.7); }
 
         /* MAPS */
         .map-section { padding: 50px 20px; text-align: center; }
-        .map-container { 
-            width: 100%; height: 300px; border-radius: 15px; overflow: hidden; 
-            border: 1px solid #333; margin-top: 20px;
-        }
+        .map-container { width: 100%; height: 300px; border-radius: 15px; overflow: hidden; border: 1px solid #333; margin-top: 20px; }
 
         /* WHATSAPP */
         .whatsapp-btn { 
             position: fixed; bottom: 20px; right: 20px; 
-            background: #25d366; color: white; padding: 12px 20px; 
+            background: #25d366; color: white; padding: 12px 25px; 
             border-radius: 50px; text-decoration: none; font-weight: 600; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 9999;
-            display: flex; align-items: center; gap: 10px;
         }
 
         footer { text-align: center; padding: 30px; font-size: 0.7rem; color: #444; border-top: 1px solid #111; }
@@ -152,33 +120,33 @@
         <p style="color: #bbb;">Digitalisez votre établissement à Yaoundé.</p>
     </section>
 
-        <div class="carousel-container">
+    <div class="carousel-container">
         <h2>Nos Spécialités</h2>
         <div class="carousel-wrapper">
             <div class="carousel-item">
-                <img src="images/carrousel-1.jpg" alt="Plat">
+                <img src="images/carrousel-1.jpg" alt="Poulet DG">
                 <div class="item-info">
-                    <span class="item-name">Poulet DG <br>Aura</span>
+                    <span class="item-name">Poulet DG<br>Tradition</span>
                     <div class="price-badge">5 500 F</div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="images/carrousel-2.jpg" alt="Plat">
+                <img src="images/carrousel-2.jpg" alt="Soya">
                 <div class="item-info">
-                    <span class="item-name">Soya <br>Premium</span>
+                    <span class="item-name">Soya<br>Premium</span>
                     <div class="price-badge">3 500 F</div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="images/carrousel-3.jpg" alt="Plat">
+                <img src="images/carrousel-3.jpg" alt="Poisson Braisé">
                 <div class="item-info">
-                    <span class="item-name">Poisson <br>Braisé</span>
+                    <span class="item-name">Poisson<br>Braisé Kribi</span>
                     <div class="price-badge">7 000 F</div>
                 </div>
             </div>
         </div>
-        </div>
-    
+        <small style="color: #444;">Appuyez pour l'effet gastronomique</small>
+    </div>
 
     <section class="services">
         <div class="card">
@@ -218,20 +186,19 @@
         <p style="color: #888;">Mimboman Nkolo, Yaoundé</p>
         <div class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15923.363944686415!2d11.5361!3d3.8667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf7a7a13f48d%3A0x6e09956976f6b5b!2sMimboman%2C%20Yaound%C3%A9!5e0!3m2!1sfr!2scm!4v1700000000000!2m2!1sfr!2scm" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15923.411685324398!2d11.5458!3d3.8667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf7a58400001%3A0x7d6c8b0b9b0b0b0b!2sMimboman%2C%20Yaound%C3%A9!5e0!3m2!1sfr!2scm!4v1700000000000" 
                 width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.8);" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
     </section>
 
     <a href="https://wa.me/237620619262?text=Bonjour%20Aura%20Studio,%20je%20souhaite%20digitaliser%20mon%20menu" class="whatsapp-btn">
-        <span>Discuter sur WhatsApp</span>
+        Discuter sur WhatsApp
     </a>
     
     <footer>
-        © 2026 Aura Studio | Yaoundé, Cameroun
+        © 2026 Aura Studio | Mimboman, Yaoundé
     </footer>
 
 </body>
-            </html>
-            
+</html>
