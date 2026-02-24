@@ -36,15 +36,7 @@
         /* ============================================
            GRAIN TEXTURE overlay
         ============================================ */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.5;
-        }
+        /* grain retiré pour performance mobile */
 
         /* ============================================
            HEADER
@@ -58,7 +50,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
+
         }
 
         /* ---- modifier le logo ici ---- */
@@ -108,13 +100,6 @@
             background-image: url('images/acceuil1.jpg'); /* ← image hero */
             background-size: cover;
             background-position: center;
-            transform: scale(1.05);
-            animation: heroZoom 12s ease-out forwards;
-        }
-
-        @keyframes heroZoom {
-            from { transform: scale(1.08); }
-            to   { transform: scale(1.0); }
         }
 
         .hero-overlay {
@@ -654,4 +639,23 @@
          modifier: logo src, slogan texte
     ===================== -->
     <header>
-        <img src="image
+        <img src="images/logo-de-mark2.png" alt="Aura Studio" class="brand-logo">
+        <div class="header-right">
+            <span class="brand-name">Aura Studio</span>
+            <span class="slogan">Architecture Gastronomique</span>
+        </div>
+    </header>
+
+
+    <!-- =====================
+         HERO
+         modifier: images/acceuil1.jpg, titre h1, sous-titre
+    ===================== -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">Yaoundé · Cameroun</span>
+            <h1>L'Expérience Culinaire<br><em>en un Scan.</em></h1>
+            <p class="hero-sub">Digitalisez votre établissement · Menu QR Code Premium</p>
+        
