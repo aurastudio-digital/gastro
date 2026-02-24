@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #E67E22; /* Orange Épicé */
+            --primary: #E67E22; 
             --bg: #0f0f0f;
             --card: #1a1a1a;
             --text: #f5f5f5;
@@ -16,211 +16,203 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text); font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
 
-        /* HEADER & LOGO */
+        /* HEADER */
         header { 
-    padding: 15px 5% ; /* 5% de marge sur les côtés pour que ce ne soit pas collé au bord */
-    display: flex; 
-    align-items: center; 
-    justify-content: flex-start; /* Aligne tout à gauche */
-    background: rgba(0,0,0,0.9); 
-    position: sticky; 
-    top: 0; 
-    z-index: 1000;
-    border-bottom: 1px solid #222; /* Une fine ligne pour séparer du reste */
-}
+            padding: 15px 5%;
+            display: flex; 
+            align-items: center; 
+            background: rgba(0,0,0,0.95); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
 
-.brand-logo { 
-    height: 70px; /* Taille ajustée pour le coin gauche */
-    width: auto;
-    margin-right: 20px; /* Espace entre le logo et le slogan */
-}
+        .brand-logo { height: 60px; width: auto; margin-right: 20px; }
 
-.slogan { 
-    font-size: 0.75rem; 
-    color: var(--primary); 
-    letter-spacing: 1.5px; 
-    text-transform: uppercase;
-    border-left: 1px solid #444; /* Une petite barre verticale de séparation */
-    padding-left: 20px;
-}
+        .slogan { 
+            font-size: 0.7rem; 
+            color: var(--primary); 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+            border-left: 1px solid #444;
+            padding-left: 15px;
+            line-height: 1.2;
+        }
         
         /* SECTION HERO */
         .hero { 
-            height: 70vh; 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/acceuil1.jpg'); 
+            height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/acceuil1.jpg'); 
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            padding: 20px;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 15px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 10px; color: var(--primary); }
 
-        /* CARROUSEL INTERACTIF */
-        .carousel-container { padding: 40px 20px; text-align: center; }
-        .carousel-wrapper { display: flex; overflow-x: auto; gap: 20px; padding: 20px; scroll-snap-type: x mandatory; }
-        .carousel-item { 
-            min-width: 250px; height: 350px; background: var(--card); border-radius: 15px; 
-            position: relative; overflow: hidden; scroll-snap-align: center; flex-shrink: 0;
-        }
-        .carousel-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .price-overlay { 
-            position: absolute; inset: 0; background: rgba(230, 126, 34, 0.9); 
-            display: flex; justify-content: center; align-items: center; 
-            opacity: 0; transition: 0.3s; font-weight: bold; font-size: 1.5rem;
-        }
-        .carousel-item:active .price-overlay { opacity: 1; }
-
-        /* SERVICES & TARIFS */
-        .services { padding: 50px 20px; display: grid; gap: 30px; max-width: 1000px; margin: auto; }
-        .card { background: var(--card); padding: 30px; border-radius: 20px; border-left: 5px solid var(--primary); }
-        .card.premium { border-left-color: #f1c40f; transform: scale(1.05); }
-        .card h2 { color: var(--primary); margin-bottom: 15px; }
-        .price { font-size: 1.8rem; font-weight: bold; margin-bottom: 20px; display: block; }
-        .card ul { list-style: "✓ "; padding-left: 20px; line-height: 1.8; color: #ccc; }
-
-        /* On change l'overlay pour qu'il soit plus discret */
-.menu-overlay {
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /* Dégradé noir au lieu de orange plein */
-    opacity: 1; /* Toujours visible mais léger en bas */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 15px;
-    transition: all 0.3s ease;
-}
-
-/* On affiche le prix de façon permanente mais élégante en bas à droite */
-.menu-price {
-    background: var(--primary); /* Ton orange/gold */
-    color: black;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    align-self: flex-end;
-}
-
-/* Effet au clic/hover pour mobile : l'image s'éclaircit un peu ou s'agrandit */
-.menu-item:active img {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-}
+        /* CARROUSEL OPTIMISÉ */
+        .carousel-container { padding: 40px 0; background: #050505; }
+        .carousel-container h2 { margin-bottom: 20px; text-align: center; font-family: 'Playfair Display', serif; }
         
+        .carousel-wrapper { 
+            display: flex; overflow-x: auto; gap: 15px; padding: 0 20px 20px 20px; 
+            scroll-snap-type: x mandatory; scrollbar-width: none; 
+        }
+        .carousel-wrapper::-webkit-scrollbar { display: none; }
 
-        /* AVIS CLIENTS */
-        .reviews { padding: 50px 20px; background: #080808; text-align: center; }
-        .review-card { background: var(--card); padding: 20px; border-radius: 10px; margin: 10px auto; max-width: 500px; font-style: italic; }
-        .stars { color: #f1c40f; margin-bottom: 10px; display: block; }
-
-        /* GALERIE FUN */
-        .gallery { padding: 50px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        .gallery img { width: 100%; border-radius: 8px; filter: grayscale(50%); transition: 0.3s; }
-        .gallery img:hover { filter: grayscale(0%); transform: scale(1.05); }
-
-        /* WHATSAPP FIXE */
-        .whatsapp-btn { 
-            position: fixed; bottom: 30px; right: 30px; 
-            background: #25d366; color: white; padding: 15px 25px; 
-            border-radius: 50px; text-decoration: none; font-weight: bold; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999;
+        .carousel-item { 
+            min-width: 280px; height: 380px; background: var(--card); border-radius: 15px; 
+            position: relative; overflow: hidden; scroll-snap-align: center; flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        
+        .carousel-item img { 
+            width: 100%; height: 100%; object-fit: cover; /* Uniformise la taille sans déformer */
+            transition: transform 0.5s;
         }
 
-        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #555; }
+        /* NOUVEL AFFICHAGE DU PRIX (Fixe et élégant) */
+        .price-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 60%, rgba(0,0,0,0.8));
+        }
+
+        /* SERVICES */
+        .services { padding: 50px 20px; display: grid; gap: 25px; max-width: 1000px; margin: auto; }
+        .card { background: var(--card); padding: 25px; border-radius: 15px; border-top: 4px solid var(--primary); }
+        .card.premium { border-top-color: #f1c40f; background: #222; }
+        .card h2 { font-size: 1.2rem; margin-bottom: 10px; letter-spacing: 1px; }
+        .price { font-size: 1.8rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; display: block; }
+        .card ul { list-style: none; line-height: 1.8; color: #bbb; font-size: 0.9rem; }
+        .card ul li::before { content: "✦ "; color: var(--primary); }
+
+        /* GALERIE UNIFORME */
+        .gallery { padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .gallery img { 
+            width: 100%; height: 120px; object-fit: cover; 
+            border-radius: 8px; filter: brightness(0.7); transition: 0.3s; 
+        }
+        .gallery img:hover { filter: brightness(1); transform: translateY(-5px); }
+
+        /* MAPS */
+        .map-section { padding: 50px 20px; text-align: center; }
+        .map-container { 
+            width: 100%; height: 300px; border-radius: 15px; overflow: hidden; 
+            border: 1px solid #333; margin-top: 20px;
+        }
+
+        /* WHATSAPP */
+        .whatsapp-btn { 
+            position: fixed; bottom: 20px; right: 20px; 
+            background: #25d366; color: white; padding: 12px 20px; 
+            border-radius: 50px; text-decoration: none; font-weight: 600; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 9999;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        footer { text-align: center; padding: 30px; font-size: 0.7rem; color: #444; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
     <header>
-    <img src="images/logo-de-mark2.png" alt="Aura Studio" class="brand-logo">
-    <div class="slogan">Architecture <br> Gastronomique</div>
+        <img src="images/logo-de-mark2.png" alt="Aura Studio" class="brand-logo">
+        <div class="slogan">Architecture <br> Gastronomique</div>
     </header>
-    
 
     <section class="hero">
         <h1>L'Expérience Culinaire <br>en un Scan.</h1>
-        <p>Modernisez votre restaurant avec Aura Studio.</p>
+        <p style="color: #bbb;">Digitalisez votre établissement à Yaoundé.</p>
     </section>
 
     <div class="carousel-container">
-        <h2>Nos Spécialités</h2>
+        <h2>Nos Réalisations</h2>
         <div class="carousel-wrapper">
             <div class="carousel-item">
                 <img src="images/carrousel-1.jpg" alt="Plat">
-                <div class="price-overlay">5 500 FCFA</div>
+                <div class="img-overlay"></div>
+                <div class="price-badge">5 500 FCFA</div>
             </div>
             <div class="carousel-item">
                 <img src="images/carrousel-2.jpg" alt="Plat">
-                <div class="price-overlay">3 500 FCFA</div>
+                <div class="img-overlay"></div>
+                <div class="price-badge">3 500 FCFA</div>
             </div>
             <div class="carousel-item">
                 <img src="images/carrousel-3.jpg" alt="Plat">
-                <div class="price-overlay">7 000 FCFA</div>
+                <div class="img-overlay"></div>
+                <div class="price-badge">7 000 FCFA</div>
             </div>
         </div>
-        <small style="color: #666;">(Appuyez sur une image pour voir le prix)</small>
     </div>
 
     <section class="services">
         <div class="card">
-            <h2>SERVICE SIMPLE</h2>
+            <h2>PACK ESSENTIEL</h2>
             <span class="price">30 000 FCFA</span>
             <ul>
-                <li>Hero avec logo et nom du restaurant</li>
-                <li>Menu complet avec photos et prix</li>
-                <li>Bouton WhatsApp fixe</li>
-                <li>Horaires et adresse</li>
-                <li>Hébergement GitHub Pages gratuit</li>
-                <li>Livraison en 48h</li>
-                <li>1 modification incluse</li>
+                <li>Menu Digital QR Code</li>
+                <li>Design Sombre & Premium</li>
+                <li>Bouton WhatsApp direct</li>
+                <li>Hébergement gratuit</li>
+                <li>Livraison 48h</li>
             </ul>
         </div>
 
         <div class="card premium">
-            <h2>SERVICE PREMIUM</h2>
+            <h2>PACK SIGNATURE</h2>
             <span class="price">75 000 FCFA</span>
             <ul>
-                <li>Tout le service simple +</li>
-                <li>Galerie photos slider</li>
-                <li>Section avis clients</li>
-                <li>Nom de domaine personnalisé (.cm / .com)</li>
-                <li>Formulaire de réservation Formspree</li>
-                <li>QR code généré et imprimé</li>
-                <li>Support & Modifications (3 mois)</li>
-                <li>Livraison en 5 jours</li>
+                <li>Tout le Pack Essentiel +</li>
+                <li>Galerie photos HD</li>
+                <li>Nom de domaine propre</li>
+                <li>Système de réservation</li>
+                <li>Impression des QR Codes</li>
+                <li>Support technique 3 mois</li>
             </ul>
         </div>
     </section>
 
-    <section class="reviews">
-        <h2>Avis de nos Partenaires</h2>
-        <div class="review-card">
-            <span class="stars">★★★★★</span>
-            "Depuis que Aura Studio a créé notre menu QR, nos clients adorent la fluidité. Un vrai plus pour l'image de marque !"
-            <br><strong>- Le Gourmet de Douala</strong>
-        </div>
-    </section>
-
     <div class="gallery">
-        <img src="images/galerie-1.jpg" alt="Ambiance">
+        <img src="images/galerie-1.jpg" alt="Restaurant">
         <img src="images/galerie-2.jpg" alt="Cuisine">
         <img src="images/galerie-3.jpg" alt="Chef">
     </div>
 
+    <section class="map-section">
+        <h2>Aura Studio Digital</h2>
+        <p style="color: #888;">Mimboman Nkolo, Yaoundé</p>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15923.363944686415!2d11.5361!3d3.8667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf7a7a13f48d%3A0x6e09956976f6b5b!2sMimboman%2C%20Yaound%C3%A9!5e0!3m2!1sfr!2scm!4v1700000000000!2m2!1sfr!2scm" 
+                width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.8);" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
     <a href="https://wa.me/237620619262?text=Bonjour%20Aura%20Studio,%20je%20souhaite%20digitaliser%20mon%20menu" class="whatsapp-btn">
-        Discuter sur WhatsApp
+        <span>Discuter sur WhatsApp</span>
     </a>
     
-    <section style="padding: 50px 20px; text-align: center;">
-    <h2>Nous Trouver</h2>
-    <p style="margin-bottom: 20px; color: #888;">Situé au cœur de Douala / Yaoundé</p>
-    <div style="width: 100%; height: 300px; border-radius: 15px; overflow: hidden; border: 1px solid #333;">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15919.293344605151!2d9.7085!3d4.0503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061128be2e11e07%3A0xefef43962635338!2sDouala!5e0!3m2!1sfr!2scm!4v1710000000000" 
-            width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) contrast(90%);" allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
-    </section>
-    
     <footer>
-        © 2026 Aura Studio | <a href="https://github.com/aurastudio-digital/gastro" style="color:#555">GitHub Repo</a>
+        © 2026 Aura Studio | Yaoundé, Cameroun
     </footer>
 
 </body>
-</html>
+            </html>
+            
